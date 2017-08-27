@@ -10,12 +10,7 @@ public class WeeklyTime {
 	private double wedHours;
 	private double thuHours;
 	private double friHours;
-	private String	weekOf;
-	private boolean isCurrent;
-	
-	public WeeklyTime()	{
-		this.isCurrent = true;
-	}
+	private String	weekOf = "";
 	
 	public double getMonHours() {
 		return monHours;
@@ -52,9 +47,22 @@ public class WeeklyTime {
 	}
 	public void setWeekOf(String weekOf) {
 		this.weekOf = weekOf;
-
 	}
+	
+	public String getWeekOfForBrowser()	{
+		SimpleDateFormat stored = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat displayed = new SimpleDateFormat("mm/dd/yyyy");
+		Date parsedDate = null;
+		System.out.println(weekOf);
+		try {
+			parsedDate = stored.parse(weekOf);
+		} catch (ParseException e) {
+			System.err.println("Cannot parse date.");
+		}
+		return displayed.format(parsedDate);		
+	}
+	
 	public double getTotalHours() {
 		return monHours + tueHours + wedHours + thuHours + friHours;
-	}	
+	}
 }

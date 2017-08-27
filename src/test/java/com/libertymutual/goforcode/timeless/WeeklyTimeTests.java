@@ -26,17 +26,17 @@ public class WeeklyTimeTests {
 		assertThat(total).isCloseTo(33.3, within(.000001));
 	}
 	
-	@Test
-	public void test_setting_and_getting_weekOf() {
-		//Arrange
-		
-		
-		//Act
-		weekTime.setWeekOf("1/1/2017");
-		
-		//Assert
-		assertThat(weekTime.getWeekOf()).isEqualTo("1/1/2017");
-	}
+//	@Test
+//	public void test_setting_and_getting_weekOf() {
+//		//Arrange
+//		
+//		
+//		//Act
+//		weekTime.setWeekOf("1/1/2017");
+//		
+//		//Assert
+//		assertThat(weekTime.getWeekOf()).isEqualTo("1/1/2017");
+//	}
 
 	@Test
 	public void test_setting_and_getting_hours_for_Monday() {

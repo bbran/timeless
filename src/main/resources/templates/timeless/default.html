@@ -20,7 +20,7 @@
 				<tbody>
 					<tr>
 						<form method="post" action="updateTime">
-							<input autofocus required name="weekOf" type="text" placeholder="mm/dd/yyyy" value={{currentWeek.weekOf}}>
+							<input autofocus required name="weekOf" type="date" placeholder="yyyy-mm-dd" value={{currentWeek.weekOf}}>
 							<input name="monHours" type="number" step="0.1" value={{currentWeek.monHours}}>
 							<input name="tueHours" type="number" step="0.1" value={{currentWeek.tueHours}}>
 							<input name="wedHours" type="number" step="0.1" value={{currentWeek.wedHours}}>
@@ -31,6 +31,25 @@
 							<button name="action" value="submit">Submit</button>
 						</form>
 					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<table>
+				<thead>
+				</thead>
+				<tbody>
+					{{#submittedWeeks}}
+						<tr>
+							<td>{{weekOfForBrowser}}</td>
+							<td>{{monHours}}</td>
+							<td>{{tueHours}}</td>
+							<td>{{wedHours}}</td>
+							<td>{{thuHours}}</td>
+							<td>{{friHours}}</td>
+							<td>{{totalHours}}</td>
+						</tr>
+					{{/submittedWeeks}}
 				</tbody>
 			</table>
 		</div>

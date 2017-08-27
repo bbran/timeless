@@ -30,8 +30,10 @@ public class TimelessController {
 	@GetMapping("timeless")
 	public ModelAndView displayDefault()	{
 		ModelAndView modelAndView = new ModelAndView("timeless/default");
-		submittedWeeks = tracker.getAll();
+		submittedWeeks = tracker.getSubmittedWeeks();
+		System.out.println("Getting current week");
 		currentWeek = tracker.getCurrentWeek();
+		System.out.println("Current week: " + currentWeek);
 		modelAndView.addObject("currentWeek", currentWeek);	
 		modelAndView.addObject("submittedWeeks", submittedWeeks);
 		return modelAndView;
@@ -41,10 +43,8 @@ public class TimelessController {
 	public String update(WeeklyTime updatedCurrentWeek, String action)	{
 		if (action.equals("update"))	{
 			tracker.updateCurrentWeek(updatedCurrentWeek);
-			currentWeek = updatedCurrentWeek;
 		} else if (action.equals("submit"))	{
 			tracker.submitWeek(updatedCurrentWeek);
-			currentWeek = new WeeklyTime();
 		}
 		return "redirect:/timeless";
 	}
