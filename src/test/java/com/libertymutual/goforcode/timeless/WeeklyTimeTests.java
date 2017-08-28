@@ -11,7 +11,7 @@ public class WeeklyTimeTests {
 	private WeeklyTime weekTime;
 	
 	@Test
-	public void test_that_calculateHours_sums_hours_from_all_days()	{
+	public void test_that_getTotalHours_sums_hours_from_all_days()	{
 		//Arrange
 		weekTime.setMonHours(4.2);
 		weekTime.setTueHours(5.0);
@@ -26,17 +26,29 @@ public class WeeklyTimeTests {
 		assertThat(total).isCloseTo(33.3, within(.000001));
 	}
 	
-//	@Test
-//	public void test_setting_and_getting_weekOf() {
-//		//Arrange
-//		
-//		
-//		//Act
-//		weekTime.setWeekOf("1/1/2017");
-//		
-//		//Assert
-//		assertThat(weekTime.getWeekOf()).isEqualTo("1/1/2017");
-//	}
+	@Test
+	public void test_setting_and_getting_weekOf() {
+		//Arrange
+		
+		
+		//Act
+		weekTime.setWeekOf("2017-01-01");
+		
+		//Assert
+		assertThat(weekTime.getWeekOf()).isEqualTo("2017-01-01");
+	}
+	
+	@Test
+	public void test_getting_weekOfForBrowser() {
+		//Arrange
+		weekTime.setWeekOf("2017-01-01");
+		
+		//Act
+		String browserWeekOf = weekTime.getWeekOfForBrowser();
+		
+		//Assert
+		assertThat(browserWeekOf).isEqualTo("01/01/2017");
+	}
 
 	@Test
 	public void test_setting_and_getting_hours_for_Monday() {
