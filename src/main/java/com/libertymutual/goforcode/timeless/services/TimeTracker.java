@@ -52,7 +52,7 @@ public class TimeTracker {
 
 	public void submitWeek(WeeklyTime updatedCurrentWeek) {
 		writeWeeklyTimetoCSV(updatedCurrentWeek, "weeklyTime.csv", true);
-		submittedWeeks.add(updatedCurrentWeek);
+		submittedWeeks.add(0, updatedCurrentWeek);
 		currentWeek = new WeeklyTime();
 		clearCurrentWeekFile();
 		
@@ -74,7 +74,7 @@ public class TimeTracker {
 					weekTime.setWedHours(Double.parseDouble(record.get(3)));
 					weekTime.setThuHours(Double.parseDouble(record.get(4)));
 					weekTime.setFriHours(Double.parseDouble(record.get(5)));
-					weeklyTimeFromCSV.add(weekTime);
+					weeklyTimeFromCSV.add(0, weekTime);
 				}
 			}
 
